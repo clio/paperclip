@@ -64,6 +64,8 @@ rescue LoadError
   require "mime/types"
 end
 
+
+require 'marcel'
 require 'logger'
 require 'cocaine'
 
