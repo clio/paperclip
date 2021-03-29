@@ -78,7 +78,7 @@ describe Paperclip::FileAdapter do
           MIME::Types.stubs(:type_for).returns([])
           Paperclip.stubs(:run).returns("application/vnd.ms-office\n")
           Paperclip::ContentTypeDetector.any_instance
-            .stubs(:type_from_mime_magic).returns("application/vnd.ms-office")
+            .stubs(:type_from_marcel_magic).returns("application/vnd.ms-office")
 
           @subject = Paperclip.io_adapters.for(@file)
         end
