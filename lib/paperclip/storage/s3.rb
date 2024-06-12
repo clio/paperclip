@@ -186,9 +186,9 @@ module Paperclip
         end unless Paperclip::Interpolations.respond_to? :asset_host
       end
 
-      def expiring_url(time = 3600, style_name = default_style)
+      def expiring_url(time = 3600, style_name = default_style, extra_options = {})
         if path(style_name)
-          base_options = { expires_in: time }
+          base_options = { expires_in: time }.merge(extra_options)
           s3_object(style_name).presigned_url(
             :get,
             base_options.merge(s3_url_options),
