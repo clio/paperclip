@@ -124,7 +124,6 @@ module Paperclip
         begin
           require 'aws-sdk-core'
           require 'aws-sdk-s3'
-          require 'aws-sdk-resources'
         rescue LoadError => e
           e.message << " (You may need to install the aws-sdk gem)"
           raise e
