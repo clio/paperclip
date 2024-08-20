@@ -128,8 +128,8 @@ module Paperclip
           e.message << " (You may need to install the aws-sdk gem)"
           raise e
         end
-        if Gem::Version.new(Aws::VERSION) >= Gem::Version.new(3) &&
-           Gem::Version.new(Aws::VERSION) < Gem::Version.new("3.2")
+        if Gem::Version.new(Aws::CORE_GEM_VERSION) >= Gem::Version.new(3) &&
+           Gem::Version.new(Aws::CORE_GEM_VERSION) < Gem::Version.new("3.2")
           raise LoadError, "paperclip does not support aws-sdk versions 3.0.0 - 3.1.x.  Please upgrade aws-sdk to a newer version."
         end
 
@@ -160,7 +160,7 @@ module Paperclip
           @http_proxy = @options[:http_proxy] || nil
 
           if @options.has_key?(:use_accelerate_endpoint) &&
-              Gem::Version.new(Aws::VERSION) < Gem::Version.new("2.3.0")
+              Gem::Version.new(Aws::CORE_GEM_VERSION) < Gem::Version.new("2.3.0")
             raise LoadError, ":use_accelerate_endpoint is only available from aws-sdk version 2.3.0. Please upgrade aws-sdk to a newer version."
           end
 
