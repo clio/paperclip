@@ -1,5 +1,6 @@
 require 'spec_helper'
-require 'aws-sdk'
+require 'aws-sdk-core'
+require 'aws-sdk-s3'
 
 describe Paperclip::Storage::S3 do
   before do
