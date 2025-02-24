@@ -5,6 +5,10 @@ module Paperclip
     class AttachmentSizeValidator < ActiveModel::Validations::NumericalityValidator
       AVAILABLE_CHECKS = [:less_than, :less_than_or_equal_to, :greater_than, :greater_than_or_equal_to]
 
+      if ActiveRecord::VERSION::MAJOR >= 7
+        CHECKS = COMPARE_CHECKS.merge(NUMBER_CHECKS)
+      end
+
       def initialize(options)
         extract_options(options)
         super
